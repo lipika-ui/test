@@ -1,0 +1,12 @@
+<mat-grid-list [cols]="columnCount">
+    <mat-grid-tile
+        *ngFor="let matrix of layoutPatternPicked;let i=index" 
+        [colspan]="matrix.cols"
+        [rowspan]="matrix.rows">
+        <img 
+          [src]="imageList[i].path" 
+          alt="imageList[i].altTag"/>   
+    </mat-grid-tile>
+    <span class="overlapText" *ngIf="imgCount>6" (click)="onClickHandler()"> {{ imgCount-6 }} +</span>
+</mat-grid-list>
+  

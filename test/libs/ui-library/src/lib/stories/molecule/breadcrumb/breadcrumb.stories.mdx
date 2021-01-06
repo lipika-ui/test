@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="molecule/breadcrumb/Introduction" />
+
+<style>{`
+
+`}</style>
+
+# Breadcrumb
+
+Breadcrumb is a reuseable component, that can be imported and used across the mono repo.
+Breadcrumb takes two inputs and has one output.
+
+<h6>Input:</h6>
+<ul>
+<li>breadCrumb =  This requires the array list of pages to reach the destination page.For Example, The breadcrumb of TV page should contain, [HOME, TV] has an array input to this field. This is an required field.</li>
+<li>isDarkMode = Enable this attribute, to get dark version of this component. This is an optional field. By default it remains, false. </li>
+</ul>
+<h6>Output:</h6>
+<ul>
+<li>clickHandler =  This function will be emitted, if an click event happens on breadCrumb component. This function will emit a null value.</li>
+</ul>
+<h5>Step 1: Add Breadcrumb details in routing file</h5>
+<h6>Routing File</h6>
+<code>
+{` 
+    const routes: Routes = [
+    { path: 'home', component:  HomeComponent},
+    { path: 'tv', component:  TVComponent, data: { breadCrumb: ["home"] }},
+    ];
+`}
+</code>
+<h5>Step 2: Fetch the breadCrumb details from the router file</h5>
+<h6>Parent component (TV Component for instance) TS File</h6>
+<p>Step 2.1: Add Routing Imports to parent ts file </p>
+<code>
+{` 
+   import { Router, ActivatedRoute } from '@angular/router';
+   constructor(private activatedroute:ActivatedRoute,   private router: Router  ) {}
+`}
+</code>
+<p>Step 2.2: Get the data passed from router file</p>
+<code>
+{` 
+   ngOnInit(): void {
+    this.activatedroute.data.subscribe(data => {
+      this.breadCrumb=data.breadCrumb;
+      this.breadCrumb.push("tv");
+     })
+   }
+`}
+</code>
+<h5>Step 3: Add the breadCrumb selector in parent compoent</h5>
+<code>
+{`
+ <lla-breadcrumb (clickHandler)="navigatePage($event)" [breadCrumb]="breadCrumb" [isDarkMode]="false"></lla-breadcrumb>
+`}
+</code>
+<h5>Step 4: Handle call back function in ts file</h5>
+<code>
+{` 
+  navigatePage(data){
+    console.log(data)
+    this.router.navigate([data])
+  }
+`}
+</code>

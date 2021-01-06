@@ -1,0 +1,47 @@
+<div class="template-fluid" [ngStyle]="{ 'background-color': backgroundColor }">
+  <div
+    *ngIf="isprimary"
+    [ngClass]="[
+      backgroundColor == 'rgba(255,255,255,1)'
+        ? 'primary-radiobutton'
+        : 'dark-radiobutton'
+    ]"
+  >
+    <p class="caption" *ngIf="caption">caption</p>
+    <mat-radio-group>
+      <mat-radio-button value="1" [disabled]="disabled">
+        <span *ngIf="label">Radio label</span> </mat-radio-button
+      ><span *ngIf="horizontal">&nbsp;&nbsp;</span><br *ngIf="!horizontal" /><br
+        *ngIf="!horizontal"
+      />
+      <mat-radio-button value="2" [disabled]="disabled">
+        <span *ngIf="label">Radio label</span>
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="error-radiobutton" *ngIf="iserror">
+    <p class="caption" *ngIf="caption">caption</p>
+    <mat-radio-group>
+      <mat-radio-button value="1" [disabled]="disabled">
+        <span *ngIf="label">Radio label</span> </mat-radio-button
+      ><span *ngIf="horizontal">&nbsp;&nbsp;</span><br *ngIf="!horizontal" /><br
+        *ngIf="!horizontal"
+      />
+      <mat-radio-button value="2" [disabled]="disabled">
+        <span *ngIf="label">Radio label</span>
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div *ngIf="isgroup" class="primary-radiobutton">
+    <p class="caption" *ngIf="caption">caption</p>
+    <mat-list>
+      <mat-list-item *ngFor="let item of Arr(values).fill(1); let i = index">
+        <label class="radio-container">
+          <span *ngIf="label">Radio Button {{i+1}}</span>
+          <input type="radio" name="radio" [id]="i" />
+          <span class="radio-checkmark"></span>
+        </label>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

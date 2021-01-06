@@ -1,0 +1,52 @@
+.card-layout-centered {
+    .card-layout {
+      width: 200px;
+      padding: 0px;
+      box-shadow: 1px 1px 4px 1px var(--grey-400);
+    }
+  
+    .card-layout-spacing {
+      padding: 8px 8px 0 8px;
+    }
+  
+    .card-layout img {
+      width: 200px;
+      height: 204px;
+    }
+  
+    .card-content {
+      text-align: center;
+      font-family: var(--InterRegular);
+      padding: 12px 20px 16px 20px;
+    }
+  
+    .card-title {
+      font-family: var(--InterBold);
+      font-size: 17px;
+      line-height: 20px;
+      padding: 5px;
+    }
+  
+    .card-tagline {
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--grey-100);
+      padding: 5px;
+    }
+  
+    .card-price {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  
+    .card-layout-dark {
+      background: var(--black-200);
+  
+      .card-tagline,
+      .card-price,
+      .card-title {
+        color: var(--white-900);
+      }
+    }
+  }
+  

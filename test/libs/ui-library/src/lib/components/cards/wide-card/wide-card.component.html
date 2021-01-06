@@ -1,0 +1,30 @@
+<div class="card-layout-wide">
+  <mat-card
+    class="card-layout"
+    [ngClass]="{
+      'card-layout-wide-dark': isdarkTheme,
+      'col-push': cardData.contentRight
+    }"
+  >
+    <img
+      src="{{ cardData.imageUrl }}"
+      alt="{{ cardData.altText }}"
+    />
+    <div
+      class="card-content"
+   >
+      <div class="card-tagline">{{ cardData.tagline }}</div>
+      <div class="card-title">{{ cardData.title }}</div>
+      <div class="card-placeholder">{{ cardData.placeholder }}</div>
+      <div class="card-body">
+        {{ cardData.body }}
+      </div>
+      <div class="card-footer">
+        <div class="card-price">{{ cardData.price }}</div>
+        <button mat-raised-button class="button--primary btn-small">
+          {{ cardData.btnText }}
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,16 @@
+<div
+  class="inputCode"
+  [ngClass]="(status | lowercase)"
+>
+  <input
+    *ngFor="let item of Arr(count).fill(1); let i = index"
+    (keyup)="onInputEntered($event, i)"
+    class="mat-form-field-infix inputcode"
+    [ngClass]="(types | lowercase)"
+    [readonly]="isReadOnly" 
+    [disabled]="isDisabled" 
+    matInput
+    type="text"
+    maxlength="1"
+  />
+</div>

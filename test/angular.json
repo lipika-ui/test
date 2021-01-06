@@ -1,0 +1,452 @@
+{
+  "version": 1,
+  "projects": {
+    "feature-library": {
+      "projectType": "library",
+      "root": "libs/feature-library",
+      "sourceRoot": "libs/feature-library/src",
+      "prefix": "lla",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/feature-library/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feature-library/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "ui-library": {
+      "projectType": "library",
+      "root": "libs/ui-library",
+      "sourceRoot": "libs/ui-library/src",
+      "prefix": "lla",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui-library/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-library/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "util-library": {
+      "root": "libs/util-library",
+      "sourceRoot": "libs/util-library/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/util-library/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/util-library/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ubc-shell": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ubc-shell",
+      "sourceRoot": "apps/ubc-shell/src",
+      "prefix": "lla",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ubc-shell",
+            "index": "apps/ubc-shell/src/index.html",
+            "main": "apps/ubc-shell/src/main.ts",
+            "polyfills": "apps/ubc-shell/src/polyfills.ts",
+            "tsConfig": "apps/ubc-shell/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ubc-shell/src/favicon.ico",
+              "apps/ubc-shell/src/assets"
+            ],
+            "styles": ["apps/ubc-shell/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ubc-shell/src/environments/environment.ts",
+                  "with": "apps/ubc-shell/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ubc-shell:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ubc-shell:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ubc-shell:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-shell/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ubc-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ubc-shell-e2e": {
+      "root": "apps/ubc-shell-e2e",
+      "sourceRoot": "apps/ubc-shell-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ubc-shell-e2e/cypress.json",
+            "tsConfig": "apps/ubc-shell-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ubc-shell:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ubc-shell:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-shell-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ubc-information": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ubc-information",
+      "sourceRoot": "apps/ubc-information/src",
+      "prefix": "lla",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ubc-information",
+            "index": "apps/ubc-information/src/index.html",
+            "main": "apps/ubc-information/src/main.ts",
+            "polyfills": "apps/ubc-information/src/polyfills.ts",
+            "tsConfig": "apps/ubc-information/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ubc-information/src/favicon.ico",
+              "apps/ubc-information/src/assets"
+            ],
+            "styles": ["apps/ubc-information/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ubc-information/src/environments/environment.ts",
+                  "with": "apps/ubc-information/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ubc-information:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ubc-information:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ubc-information:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-information/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ubc-information/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ubc-information-e2e": {
+      "root": "apps/ubc-information-e2e",
+      "sourceRoot": "apps/ubc-information-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ubc-information-e2e/cypress.json",
+            "tsConfig": "apps/ubc-information-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ubc-information:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ubc-information:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-information-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ubc-pages": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/ubc-pages",
+      "sourceRoot": "apps/ubc-pages/src",
+      "prefix": "ubc-pages",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/ubc-pages",
+            "index": "apps/ubc-pages/src/index.html",
+            "main": "apps/ubc-pages/src/main.ts",
+            "polyfills": "apps/ubc-pages/src/polyfills.ts",
+            "tsConfig": "apps/ubc-pages/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/ubc-pages/src/favicon.ico",
+              "apps/ubc-pages/src/assets"
+            ],
+            "styles": ["apps/ubc-pages/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/ubc-pages/src/environments/environment.ts",
+                  "with": "apps/ubc-pages/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ubc-pages:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ubc-pages:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ubc-pages:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-pages/src/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/ubc-pages/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ubc-pages-e2e": {
+      "root": "apps/ubc-pages-e2e",
+      "sourceRoot": "apps/ubc-pages-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ubc-pages-e2e/cypress.json",
+            "tsConfig": "apps/ubc-pages-e2e/tsconfig.e2e.json",
+            "devServerTarget": "ubc-pages:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ubc-pages:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/ubc-pages-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "2318ec04-500f-4b6a-aefb-7275f92f6f04"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "strict": true
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "ubc-shell"
+}

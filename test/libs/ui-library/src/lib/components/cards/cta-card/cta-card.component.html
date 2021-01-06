@@ -1,0 +1,22 @@
+<div class="card-layout-cta">
+  <mat-card
+    class="card-layout"
+    [ngClass]="{
+      'card-layout-spacing': isbordered,
+      'card-layout-cta-dark': isdarkTheme
+    }"
+  >
+    <img src="{{ cardData.imageUrl }}" alt="{{ cardData.altText }}" />
+    <div class="card-content">
+      <div class="card-title">{{ cardData.title }}</div>
+      <div class="card-placeholder">{{ cardData.placeholder }}</div>
+      <div class="card-caption">{{ cardData.caption }}</div>
+      <div class="card-footer">
+        <div class="card-price">{{ cardData.price }}</div>
+        <button mat-raised-button class="button--primary btn-small">
+          {{ cardData.btnText }}
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

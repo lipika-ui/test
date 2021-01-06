@@ -1,0 +1,11 @@
+<div [ngClass]="{ breadcrumb: true, 'dark-mode': isDarkMode }">
+  <div class="breadcrumb__wrapper">
+    <a
+      (click)="onClickHandler($event)"
+      class="breadcrumb__wrapper__item"
+      *ngFor="let item of breadCrumb"
+    >
+      {{ item }}
+    </a>
+  </div>
+</div>

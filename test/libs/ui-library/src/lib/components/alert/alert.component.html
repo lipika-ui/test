@@ -1,0 +1,16 @@
+<div class="alert__position">
+  <div
+    class="alert"
+    [ngClass]="[
+      status ? (status | lowercase) : '',
+      opacity ? 'opacity__' + opacity : '',
+      type ? type + '-alert' : ''
+    ]"
+  >
+    <span class="alert__title">{{ title }}</span>
+    <a class="alert__close" (click)="onClose()">&times;</a>
+    <div class="alert__content">
+      {{ body }}
+    </div>
+  </div>
+</div>

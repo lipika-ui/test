@@ -1,0 +1,28 @@
+<div class="card-layout-plans">
+  <mat-card class="card-layout">
+    <img src="{{ cardData.imageUrl }}" alt="{{ cardData.altText }}" />
+    <div class="card-content">
+      <div class="features" *ngFor="let item of cardData.planContent">
+        <div class="circle"><span class="{{ cardData.icon }}"></span></div>
+        <div class="content">
+          <div class="title">{{ item.text }}</div>
+          <div class="subtitle">{{ item.label }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-price">
+        <span class="dollar">{{ cardData.currency }}</span>
+        <span class="price">{{ cardData.price }}</span>
+      </div>
+      <div class="card-months">
+        <div class="months">{{ cardData.priceTerms }}</div>
+        <div>{{ cardData.subPriceTerms }}</div>
+      </div>
+    </div>
+    <div class="normal-price">{{ cardData.normalPrice }}</div>
+    <button class="button--primary btn-large card-btn">
+      {{ cardData.btnText }}
+    </button>
+  </mat-card>
+</div>

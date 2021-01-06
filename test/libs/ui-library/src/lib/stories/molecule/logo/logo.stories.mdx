@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="molecule/Logo/Introduction" />
+
+<style>{`
+
+`}</style>
+
+# Logo
+
+<h5>Logo component takes 4 parameters as Input.</h5>
+<ul> 
+<li><strong>altTag:</strong> Specifices the alernative text for the image. This is an optional attribute. By default, alernative text is been set to "logo"</li>
+<li><strong>imgPath:</strong> Specifices the Image path. This is an required attribute.</li>
+</ul>
+<h5>Logo component has one Onclick emitter function.</h5>
+<ul>
+<li><strong>clickHandler: </strong> This function will be emitted, if an click event happens on logo component. This function will emit a boolean value.</li>
+</ul>
+<h6>Parent Component HTML</h6>
+<code>
+{`
+  <div style="display: flex;">
+    <a class="hidden-xs hidden-sm" [href]="url">
+        <lla-logo  (clickHandler)="eventHandler($event)" [altTag]="altContent" [imgPath]="imgPath" ></lla-logo>
+    </a>
+    <a class="visible-sm visible-xs hidden-md" [href]="url">
+        <lla-logo  (clickHandler)="eventHandler($event)" [altTag]="altContent" [imgPath]="imgMobilePath" ></lla-logo>
+    </a>
+</div>
+`}
+</code>
+<h6>Parent component TS File</h6>
+
+<code>
+{` 
+  altContent = "logo";
+  imgPath = "./assets/logo/logo-desktop.svg";
+  imgMobilePath = "./assets/logo/logo-mobile.svg";
+  url="";
+  eventHandler(value:boolean){
+    if(value){
+     this.url = "http://google.com";
+    }
+  }
+`}
+</code>
+

@@ -1,0 +1,16 @@
+<div class="card-layout-centered">
+  <mat-card
+    class="card-layout"
+    [ngClass]="{
+      'card-layout-spacing': isbordered,
+      'card-layout-dark': isdarkTheme
+    }"
+  >
+    <img src="{{ cardData.imageUrl }}" alt="{{ cardData.altText }}" />
+    <div class="card-content">
+      <div class="card-tagline">{{ cardData.tagline }}</div>
+      <div class="card-title">{{ cardData.title }}</div>
+      <div class="card-price">{{ cardData.price }}</div>
+    </div>
+  </mat-card>
+</div>

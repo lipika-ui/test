@@ -1,0 +1,93 @@
+.card-layout-fullsize {
+  .card-layout {
+    width: 215px;
+    height: 200px;
+    padding: 0px;
+    position: relative;
+  }
+
+  .card-layout img {
+    width: 215px;
+    height: 200px;
+  }
+
+  .card-content {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+  }
+
+  .card-title {
+    font-family: var(--InterRegular);
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+  }
+
+  .card-caption {
+    font-family: var(--InterRegular);
+    font-size: 13px;
+    color: var(--card-caption);
+  }
+}
+
+.card-layout-fullsize-cta {
+  .card-layout {
+    width: 215px;
+    height: 200px;
+    padding: 0px;
+    position: relative;
+  }
+
+  .card-layout img {
+    width: 215px;
+    height: 200px;
+  }
+
+  .card-content {
+    position: absolute;
+    left: 20px;
+    bottom: 19.84px;
+  }
+
+  .card-title {
+    font-family: var(--InterRegular);
+    font-family: 15px;
+    font-weight: bold;
+    height: 24px;
+  }
+}
+
+.card-layout-fullsize-price {
+  .card-layout {
+    width: 215px;
+    height: 200px;
+    padding: 0px;
+    position: relative;
+    box-shadow: 1px 1px 4px 1px var(--grey-400);
+  }
+
+  .card-layout img {
+    width: 215px;
+    height: 200px;
+  }
+
+  .card-title {
+    font-family: var(--InterRegular);
+    font-family: 15px;
+    font-weight: bold;
+    height: 22px;
+    position: absolute;
+    bottom: 19px;
+    left: 20px;
+  }
+
+  .card-price {
+    font-family: var(--InterRegular);
+    color: var(--card-caption);
+    height: 22px;
+    position: absolute;
+    bottom: 19px;
+    right: 20px;
+  }
+}

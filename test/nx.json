@@ -1,0 +1,60 @@
+{
+  "npmScope": "lla",
+  "affected": {
+    "defaultBase": "origin/develop"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "accessToken": "N2IzZTBmM2YtOGU2Ny00ODA0LTliNjQtZDRjMGZmNzM3MjRjfHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "projects": {
+    "ui-library": {
+      "tags": []
+    },
+    "feature-library": {
+      "tags": []
+    },
+    "util-library": {
+      "tags": ["library"]
+    },
+    "ubc-shell": {
+      "tags": ["application"]
+    },
+    "ubc-shell-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ubc-shell"]
+    },
+    "ubc-information": {
+      "tags": ["application"]
+    },
+    "ubc-information-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ubc-information"]
+    },
+    "ubc-pages": {
+      "tags": ["application"]
+    },
+    "ubc-pages-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ubc-pages"]
+    }
+  }
+}

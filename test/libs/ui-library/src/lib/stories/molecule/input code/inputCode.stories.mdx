@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="molecule/InputCode/Introduction" />
+
+<style>{`
+
+`}</style>
+
+# InputCode
+<h4>Input Box For Code Blocks</h4>
+<h6>HTML</h6>
+<code>
+{`
+<div class="inputCode">
+    <label class="inputLabel"><strong>Label</strong></label><br />
+    <div class="inputCodeBox">
+        <div class="mat-form-field-infix">
+            <input (keyup)="onInputEntry($event,i)" class="inputcode"  matInput   [type]="(active[i] && active[i]=='true') ? 'password' : 'text'"  maxlength="1" />
+        </div>
+        <div class="mat-form-field-infix">
+            <input (keyup)="onInputEntry($event,i)" class="inputcode"  matInput   [type]="(active[i] && active[i]=='true') ? 'password' : 'text'"  maxlength="1" />
+        </div>
+        <div class="mat-form-field-infix">
+            <input (keyup)="onInputEntry($event,i)" class="inputcode"  matInput   [type]="(active[i] && active[i]=='true') ? 'password' : 'text'" maxlength="1" />
+        </div>
+        <div class="mat-form-field-infix">
+            <input (keyup)="onInputEntry($event,i)" class="inputcode"  matInput   [type]="(active[i] && active[i]=='true') ? 'password' : 'text'" maxlength="1" />
+        </div>
+        <mat-hint>Assistive Text</mat-hint>
+    </div>
+</div>
+`}
+</code>

@@ -1,0 +1,15 @@
+<div class="template-fluid" [ngStyle]="{ 'background-color': backgroundColor }">
+  <div [ngClass]="[isDarkMode ? 'vtr-list-dark' : 'vtr-list-light']">
+    <mat-list>
+      <div class="list-title">Title List</div>
+      <div [ngClass]="horizontal ? 'list-items' : ''">
+        <mat-list-item
+          class="list"
+          *ngFor="let item of Arr(list); let i = index"
+          ><div *ngIf="icon" class="list-icons icon-folder"></div>
+          <div>List item {{ i + 1 }}</div></mat-list-item
+        >
+      </div>
+    </mat-list>
+  </div>
+</div>

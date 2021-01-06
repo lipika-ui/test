@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="molecule/ImageGallery/Introduction" />
+
+<style>{`
+
+`}</style>
+
+# Image Gallery
+
+Image Gallery is a reuseable component, that can be imported and used across the mono repo.
+Image Gallery takes one input and returns one output.
+
+<h6>Input:</h6>
+<ul>
+<li>imageList =  This requires the array containing list of images that need to be displayed. This images array should be of type Iimages*. This is an required field.</li>
+</ul>
+<h6>Output:</h6>
+<ul>
+<li>clickHandler =  This function will be emitted, if an click event happens on gallery component. This function will emit a null value.</li>
+</ul>
+
+<h5>Step 1: Add the image gallery selector in parent compoent</h5>
+<code>
+{`
+ <lla-img-gallery [imageSet]="imageSet" (clickHandler)="handleClick()"></lla-img-gallery>
+`}
+</code>
+<h5>Step 2: Define values for imageSet attribute in ts file</h5>
+<code>
+{` 
+  imageSet = [
+    {altTag: "img1", path: './assets/sampleImg1.png'},
+    {altTag: "img1", path: './assets/sampleImg3.png'},
+    {altTag: "img1", path: './assets/sampleImg4.png'},
+    {altTag: "img1", path: './assets/sampleImg5.png'},
+    {altTag: "img1", path: './assets/sampleImg2.png'},
+    {altTag: "img1", path: './assets/sampleImg.png'},
+    {altTag: "img1", path: './assets/sampleImg1.png'}
+  ]
+`}
+</code>
+<h5>Step 3: Handle call back function in ts file</h5>
+<p>Here call back is to trigger another component in modal dialog.</p>
+<code>
+{` 
+  handleClick(){
+      const dialogRef = this.dialog.open(ModalComponentComponent);
+  }
+`}
+</code>
+<h6>* Iimages Interface</h6>
+<p>This interface consists of two parameters and both are required.</p>
+<ul>
+<li>path =  Accepts value of type string. This variable is to specify the image path url.</li>
+<li>altTag = Accepts value of type string. This variable is to specify the alternate tag for the image.</li>
+</ul>
+<code>
+{`
+export interface Iimages {
+  path: string;
+  altTag: string;
+}
+`}
+</code>

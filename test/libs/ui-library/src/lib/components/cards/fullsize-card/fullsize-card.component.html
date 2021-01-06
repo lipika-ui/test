@@ -1,0 +1,26 @@
+<div
+  [ngClass]="{
+    'card-layout-fullsize': cardVariant == 'FULLSIZE',
+    'card-layout-fullsize-cta': cardVariant == 'FULLSIZECTA',
+    'card-layout-fullsize-price': cardVariant == 'FULLSIZEPRICE'
+  }"
+>
+  <mat-card class="card-layout">
+    <img src="{{ cardData.imageUrl }}" alt="{{ cardData.altText }}" />
+    <div class="card-content">
+      <div class="card-title">{{ cardData.title }}</div>
+      <div class="card-caption">
+        {{ cardData.caption }}
+      </div>
+      <button
+        *ngIf="cardVariant == 'FULLSIZECTA'"
+        class="button--primary btn-small"
+      >
+        {{ cardData.btnText }}
+      </button>
+      <div class="card-price">
+        {{ cardData.price }}
+      </div>
+    </div>
+  </mat-card>
+</div>

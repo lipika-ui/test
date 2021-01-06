@@ -1,0 +1,18 @@
+.mat-grid-list {
+    width: 360px;
+    height: 240px;
+    position: relative;
+    padding-bottom: 0px !important;
+}
+mat-grid-tile, mat-grid-list {
+    background: var(--white-900);
+}
+.overlapText{
+    position: absolute;
+    color: var(--white-900);
+    font-size: 22px;
+    right: 12%;
+    top: 70%;
+    line-height: 26px;
+    cursor: pointer;
+}

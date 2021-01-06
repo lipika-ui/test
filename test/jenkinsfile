@@ -1,0 +1,57 @@
+pipeline {
+	agent any
+	tools {
+	nodejs "nodejs"
+	}
+	stages {
+		stage('install yarn') {
+			steps {
+				sh 'yarn'
+			}
+		}
+		stage('lint check') {
+			steps {
+				sh 'yarn affected:lint'
+			}
+		}
+		stage('unit test') {
+			steps {
+				sh 'yarn affected:test'
+			}
+		}
+		stage('test coverage') {
+			steps {
+				sh 'yarn run test:cov'
+			}
+		}
+		stage('Sonarqube') {
+                        environment {
+                                scannerHome = tool 'sonarqube'
+                }
+                        steps {
+                               withSonarQubeEnv('sonarqube') {
+                                 sh "${scannerHome}/bin/sonar-scanner"
+                           }
+
+                       }
+                }
+                stage("Quality Gate") {
+                        steps {
+                               timeout(time: 1, unit: 'HOURS') {
+                                 waitForQualityGate abortPipeline: true
+                           }
+                     }
+                }
+		stage('building production') {
+			steps {
+				sh 'nx affected:build --all'
+			}
+		        post {
+                 always {
+                     jiraSendBuildInfo site: 'lla-io.atlassian.net'
+                 }
+             }	
+		}
+
+	}
+}

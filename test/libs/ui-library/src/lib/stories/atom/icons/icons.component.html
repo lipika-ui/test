@@ -1,0 +1,15 @@
+<div class="template-fluid" [ngStyle]="{ 'background-color': backgroundColor }">
+  <div class="wrapper-icon" [ngClass]="[fontSize ? fontSize : '']">
+    <span
+      [ngClass]="[iconClass ? iconClass : '']"
+      [ngStyle]="{ color: fontColor }"
+    >
+    </span>
+    <span
+      *ngIf="label"
+      class="description-icon"
+      [ngStyle]="{ color: fontColor }"
+      >Label</span
+    >
+  </div>
+</div>

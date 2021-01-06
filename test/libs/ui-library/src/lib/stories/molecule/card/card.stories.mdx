@@ -1,0 +1,226 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="molecule/Cards/Introduction" />
+
+<style>{`
+
+`}</style>
+
+# Cards
+
+Cards is a reuseable component, that can be imported and used across the mono repo.
+Cards component has been divided into multiple sub components. They are:
+<ul>
+<li>CENTERED CARD - Contains a full width image followed by Tagline,Title and Price. All the text fields are aligned in center. </li>
+<li>CTA CARD- Contains a full width image followed by Tagline,Title,Price and button. All the text fields are aligned in left. Button field will be left aligned. </li>
+<li>WIDE CARD- This design follows a two column layout. Left side will be image and the right side conatins, Title descripition price and a button</li>
+<li>FULLSIZE CARD- This design contains a full width image and the title overlays on the image.This component has two other modifications. There are </li>
+<ul>
+<li>FULLSIZECTA - This design contains a full width image and the title and button overlays on the image.</li>
+<li>FULLSIZEPRICE - This design contains a full width image and the title and price overlays on the image.</li>
+</ul>
+<li>PLANS CARD- This design contains of a image at the top followed by plan details listed with bullet points and then ends with a call to action button</li>
+</ul>
+
+<h6>Default Inputs for all card components:</h6>
+<code>
+{`
+export interface CUSTOM_CARD {
+  imageUrl: string;
+  title: string;
+  altText?: string;
+  price?: string;
+}
+`}
+</code>
+<ul>
+<li><strong>imageUrl </strong>- This field specifies the path of image to be displayed.This field accepts string value.This is an required field.</li>
+<li><strong>altText</strong> - This field specifies the alternate text of the image. This field accepts string value.This is an optional field.</li>
+<li><strong>title</strong>  - This field specifies the Title to be displayed in the card.This field accepts string value.This is an required field.</li>
+<li><strong>price</strong>  - This field specifies the price to be displayed in the card.This field accepts string value.This is an optional field. </li>
+</ul>
+
+<h6>Default Inputs for CENTERED card components:</h6>
+<p>This component has three inputs. There are:</p>
+<ol>
+<li>
+<p><strong>cardData </strong>- This component accepts a array of type CENTERED-CARD called cardData. The CENTERED-CARD requires the below attributes along with custom-card interface attribute. </p>
+<p>CENTERED-CARD Interface</p>
+<code>
+{`
+import { CUSTOM_CARD } from './custom-card';
+export interface CENTERED_CARD extends CUSTOM_CARD {
+  tagline?: string;
+}
+`}
+</code>
+<ul>
+<li><strong>tagline</strong> - This field specifies the Tagline to be displayed in the card.This field accepts string value.This is an optional field. </li>
+</ul>
+</li>
+<li><strong>bordered</strong> - This field enables the border for the entire card.This field accepts boolean value.This is an optional field. </li>
+<li><strong>darkTheme</strong> - Enabling this field, gives a darker version of the selected card type.This field accepts boolean value.This is an optional field. </li>
+</ol>
+<h6>Default Inputs for CTA card components:</h6>
+<p>This component has three inputs. There are:</p>
+<ol>
+<li>
+<p><strong>CTA-CARD</strong> - This component accepts a array of type CTA-CARD called cardData. The CTA-CARD requires the below attributes along with custom-card interface attribute. </p>
+<p>CTA-CARD Interface</p>
+<code>
+{`
+import { CUSTOM_CARD } from './custom-card';
+export interface CTA_CARD extends CUSTOM_CARD {
+  placeholder?: string;
+  caption?: string;
+  btnText?: string;
+  bordered?: boolean;
+  darkTheme?: boolean;
+}
+`}
+</code>
+</li>
+<ul>
+<li><strong>placeholder</strong> - This field specifies the descripition to be displayed in the card.This field accepts string value.This is an optional field. </li>
+<li><strong>caption</strong> - This field specifies the Caption to be displayed in the card.This field accepts string value.This is an optional field.</li>
+<li><strong>btnText</strong> - This field specifies the button text to be displayed in the card. This field accepts string value.This is an optional field.</li>
+</ul>
+<li><strong>bordered</strong> - This field enables the border for the entire card.This field accepts boolean value.This is an optional field. </li>
+<li><strong>darkTheme</strong> - Enabling this field, gives a darker version of the selected card type.This field accepts boolean value.This is an optional field. </li>
+</ol>
+
+<h6>Default Inputs for FULLSIZE card components:</h6>
+<p>This component has one inputs. There are:</p>
+<p><strong>FULLSIZE-CARD</strong> - This component accepts a array of type FULLSIZE-CARD called cardData. The FULLSIZE-CARD requires the below attributes along with custom-card interface attribute. </p>
+<p>FULLSIZE-CARD Interface</p>
+<code>
+{`
+import { CUSTOM_CARD } from './custom-card';
+export interface FULLSIZE_CARD extends CUSTOM_CARD {
+  caption?: string;
+  btnText?: string;
+}
+`}
+</code>
+<ul>
+<li><strong>caption</strong> - This field specifies the Caption to be displayed in the card.This field accepts string value.This is an optional field.</li>
+<li><strong>btnText</strong> - This field specifies the button text to be displayed in the card. This field accepts string value.This is an optional field.</li>
+</ul>
+
+
+
+<h6>Default Inputs for WIDE card components:</h6>
+<p>This component has two inputs. There are:</p>
+<ol>
+<li>
+<p><strong>WIDE-CARD</strong> - This component accepts a array of type WIDE-CARD called cardData. The WIDE-CARD requires the below attributes along with custom-card interface attribute. </p>
+<p>Wide-CARD Interface</p>
+<code>
+{`
+import { CUSTOM_CARD } from './custom-card';
+export interface WIDE_CARD extends CUSTOM_CARD {
+  tagline?: string;
+  placeholder?: string;
+  caption?: string;
+  body?: string;
+  btnText?: string;
+  contentRight?: boolean;
+  darkTheme?: boolean;
+}
+`}
+</code>
+</li>
+<ul>
+<li><strong>tagline</strong> - This field specifies the Tagline to be displayed in the card.This field accepts string value.This is an optional field. </li>
+<li><strong>placeholder</strong> - This field specifies the descripition to be displayed in the card.This field accepts string value.This is an optional field. </li>
+<li><strong>caption</strong> - This field specifies the Caption to be displayed in the card.This field accepts string value.This is an optional field.</li>
+<li><strong>body</strong> - This field specifies the body to be displayed in the card.This field accepts string value.This is an optional field. </li>
+<li><strong>btnText</strong> - This field specifies the button text to be displayed in the card. This field accepts string value.This is an optional field.</li>
+<li><strong>contentRight</strong> - This field specifies whether to have the content on right side or on left side.This field accepts boolean value.This is an optional field. </li>
+</ul>
+<li><strong>darkTheme</strong> - Enabling this field, gives a darker version of the selected card type.This field accepts boolean value.This is an optional field. </li>
+</ol>
+
+
+<h6>Default Inputs for PLANS card components:</h6>
+<p>This component accepts a array of type PLANS-CARD called cardData. The PLANS-CARD requires the below attributes along with custom-card interface attribute. </p>
+<p>PLANS-CARD Interface</p>
+<code>
+{`
+import { CUSTOM_CARD } from './custom-card';
+export interface PLANS_CARD extends CUSTOM_CARD {
+  planContent: Array<unknown>;
+  icon?: string;
+  currency?: string;
+  btnText?: string;
+  priceTerms?: string;
+  subPriceTerms?: string;
+  normalPrice?: number;
+}
+`}
+</code>
+<ul>
+<li><strong>planContent</strong> - This field specifies the list of features available for the plans card.This field accepts array value.This is an required field.Here is an sample for the same: 
+<code>
+{`
+   planContent: [
+        {
+          text: 'Internet + Nextgen Wifi',
+          label: '',
+        },
+        {
+          text: 'TV Hogar HD',
+          label: '86 Canales + 71 Canales HD',
+        },
+        {
+            text: 'Internet + Nextgen Wifi',
+            label: '',
+          },
+          {
+            text: 'TV Hogar HD',
+            label: '86 Canales + 71 Canales HD',
+          },
+      ],
+`}
+</code>
+</li>
+<li><strong>icon</strong> - This field specifies the icon to be displayed in the card.This field accepts string value.This is an optional field. </li>
+<li><strong>currency</strong> - This field specifies the type of currency to be displayed.This field accepts string value.This is an optional field. </li>
+<li><strong>btnText</strong> - This field specifies the button text to be displayed in the card. This field accepts string value.This is an optional field.</li>
+<li><strong>priceTerms</strong> - This field specifies the terms for the pricing to be displayed in the card. This field accepts string value.This is an optional field.</li>
+<li><strong>subPriceTerms</strong> - This field specifies terms for the pricing to be displayed in the card. This field accepts string value.This is an optional field.</li>
+<li><strong>normalPrice</strong> - This field specifies normal pricing without offers to be displayed in the card. This field accepts string value.This is an optional field.</li>
+</ul>
+
+
+<h6>Output:</h6>
+<ul>
+<li>clickHandler =  This function will be emitted, if an click event happens on gallery component. This function will emit a null value.</li>
+</ul>
+
+<h5>Step 1: Add the Cards selector in parent compoent</h5>
+<code>
+{`
+<lla-centered-card *ngIf="centeredCard" [cardData]= "cardData"></lla-centered-card>
+`}
+</code>
+<h5>Step 2: Define values for attributes in ts file</h5>
+<code>
+{` 
+  cardData = {
+    imageUrl : "./vtr/sampleImg.png",
+    title: "Title",
+    altText : "Test",
+    price : 123,
+  }
+`}
+</code>
+<h5>Step 3: Handle call back function in ts file, if any</h5>
+<p>Here call back is to trigger another component in modal dialog.</p>
+<code>
+{` 
+  handleClick(){
+      const dialogRef = this.dialog.open(ModalComponentComponent);
+  }
+`}
+</code>
